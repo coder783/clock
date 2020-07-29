@@ -1,0 +1,56 @@
+<!DOCTYPE html><html><head>
+    <script src="p5.js"></script>
+    <script src="p5.dom.min.js"></script>
+    <script src="p5.sound.min.js"></script>
+<script src="./p5.play.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+
+    <link href='https://fonts.googleapis.com/css?
+    family=Orbitron' rel='stylesheet' type="text/css">
+    <script>
+        function startTime(){
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+
+            m = checkTime(m);
+            s = checkTime(s);
+
+            document.getElementById('clock').innerHTML = 
+                h + ":" + m + ":" + s;
+                
+                var t = setTimeout(startTime, 500);
+
+        }
+
+        function checkTime(i){
+            if(i<10){i = "0" + i};
+            return i;
+        }
+
+
+    </script>
+    <style>
+        body{
+            background: black;
+        }
+        #clock{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color: #17d4fe;
+            font-family: Orbitron;
+            letter-spacing: 7px;
+            font-weight: bold;
+            font-size: 10rem;
+        }
+    </style>
+
+  </head>
+  <body onload="startTime()">
+    <div id="clock"></div>>
+
+</body></html>
